@@ -1,7 +1,7 @@
 --!native
 --!optimize 2
 --!divine-intellect
-
+-- https://discord.gg/
 
 local function string_find(s, pattern)
 	return string.find(s, pattern, nil, true)
@@ -2509,7 +2509,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				continue
 			end
 
-			local ClassName = instance.ClassName
+			local ClassName = (typeof(instance) == 'Instance' and instance.ClassName) or 'Unknown'
 
 			local InstanceName = instance.Name
 
@@ -2934,7 +2934,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 					instance = nil
 					-- break
 				else
-					local ClassName = instance.ClassName
+					local ClassName = (typeof(instance) == 'Instance' and instance.ClassName) or 'Unknown'
 
 					local Fix = InheritsFix(NilInstancesFixes, ClassName, instance)
 
